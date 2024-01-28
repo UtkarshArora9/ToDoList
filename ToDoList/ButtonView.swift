@@ -18,7 +18,7 @@ struct ButtonView: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(Color.pink)
                 
                 Text(title)
                     .foregroundColor(.white)
@@ -29,7 +29,7 @@ struct ButtonView: View {
 }
 
 #Preview {
-    ButtonView(title: "Title", background: .blue){
+    ButtonView(title: "Title", background: .pink){
          // Actio n
     }
 }

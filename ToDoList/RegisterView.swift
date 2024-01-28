@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    @State var name = ""
-    @State var email = ""
-    @State var password = ""
+    @StateObject var viewModel = RegisterViewViewModel()
     
     var body: some View {
         VStack {
@@ -18,16 +16,16 @@ struct RegisterView: View {
             HeaderView(title: "Register", subtitle: "Start organising todos", angle: -15, background: .orange)
             
             Form {
-                TextField("Full Name", text: $name)
+                TextField("Full Name", text: $viewModel.name)
                     .textFieldStyle(DefaultTextFieldStyle())
                     .autocorrectionDisabled()
                 
-                TextField("Email Address", text: $email)
+                TextField("Email Address", text: $viewModel.email)
                     .textFieldStyle(DefaultTextFieldStyle())
                     .autocorrectionDisabled()
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 
-                SecureField("Pasword", text:$password)
+                SecureField("Pasword", text:$viewModel.password)
                     .textFieldStyle(DefaultTextFieldStyle())
                 
                 ButtonView(
@@ -35,6 +33,7 @@ struct RegisterView: View {
                     background: .green
                 ){
                     //Action Registration
+                    viewModel.register()
                 }
                 .padding()
             }
